@@ -16,6 +16,8 @@ router.all("*", (req, res, next) => {
 router.get("/", (req, res) => {
   // console.log(req.session.admin);
 
+  /*
+  // dla testów
   const newsData = new News({
     title: "Tytuł testowy",
     description: "Opis",
@@ -24,9 +26,16 @@ router.get("/", (req, res) => {
   newsData.save((err) => {
     console.log(err);
   });
+ */
 
-  res.render("admin", {
+  res.render("admin/index", {
     title: "Admin",
+  });
+});
+
+router.get("/news/add", (req, res) => {
+  res.render("admin/news-form", {
+    title: "Dodaj news",
   });
 });
 
