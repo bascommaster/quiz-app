@@ -1,4 +1,5 @@
 const express = require("express");
+const News = require("../models/news");
 const router = express.Router();
 
 router.all("*", (req, res, next) => {
@@ -14,6 +15,15 @@ router.all("*", (req, res, next) => {
 /* GET home page. */
 router.get("/", (req, res) => {
   // console.log(req.session.admin);
+
+  const newsData = new News({
+    title: "Tytuł testowy",
+    description: "Opis",
+  });
+
+  newsData.save((err) => {
+    console.log(err);
+  });
 
   res.render("admin", {
     title: "Admin",
